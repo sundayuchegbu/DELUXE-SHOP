@@ -7,12 +7,12 @@ import MetaData from "../layout/MetaData";
 const Shipping = () => {
   const countriesList = Object.values(countries);
 
-  const { shippinginfo } = useSelector((state) => state.cart);
-  const [address, setAddress] = useState(shippinginfo.address);
-  const [city, setCity] = useState(shippinginfo.city);
-  const [postalCode, setPostalCode] = useState(shippinginfo.postalCode);
-  const [phoneNo, setPhoneNo] = useState(shippinginfo.phoneNo);
-  const [country, setCountry] = shippinginfo.country;
+  const { shippingInfo } = useSelector((state) => state.cart);
+  const [address, setAddress] = useState(shippingInfo.address);
+  const [city, setCity] = useState(shippingInfo.city);
+  const [postalCode, setPostalCode] = useState(shippingInfo.postalCode);
+  const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
+  const [country, setCountry] = shippingInfo.country;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

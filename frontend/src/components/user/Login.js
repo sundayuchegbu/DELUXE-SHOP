@@ -23,6 +23,7 @@ const Login = () => {
   useEffect(() => {
     if (isAuthenticated) {
       navigate(redirect);
+      console.log(redirect);
     }
     if (error) {
       alert.error(error);
