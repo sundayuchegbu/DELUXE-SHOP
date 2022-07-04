@@ -107,7 +107,7 @@ const authCtrl = {
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      return next(ErrorHandler("User not found with this email", 404));
+      return next(new ErrorHandler("User not found with this email", 404));
     }
 
     // Get reset token
@@ -116,9 +116,7 @@ const authCtrl = {
     await user.save({ validateBeforeSave: false });
 
     // create reset password url
-    const resetUrl = `${req.protocol}://${req.get(
-      "host"
-    )}/api/v1/password/reset/${resetToken}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
     const message = `Your password reset token is as follow:\n\n${resetUrl}\n\nIf you have not requested this email, then ignore it.`;
 

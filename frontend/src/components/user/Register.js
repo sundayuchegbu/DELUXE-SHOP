@@ -28,12 +28,12 @@ const Register = () => {
   );
 
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate("/");
-    }
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
+    }
+    if (isAuthenticated) {
+      navigate("/");
     }
   }, [dispatch, alert, isAuthenticated, error, navigate]);
 
@@ -46,10 +46,10 @@ const Register = () => {
     formData.set("password", password);
     formData.set("avatar", avatar);
     dispatch(register(formData));
-    console.log(avatar);
+  
   };
   const onChange = (e) => {
-    if (e.target.name === "avater") {
+    if (e.target.name === "avatar") {
       const reader = new FileReader();
 
       reader.onload = () => {
@@ -131,7 +131,7 @@ const Register = () => {
                     name='avatar'
                     className='custom-file-input'
                     id='customFile'
-                    accept='image/*'
+                    accept='images/*'
                     onChange={onChange}
                   />
                   <label className='custom-file-label' htmlFor='customFile'>

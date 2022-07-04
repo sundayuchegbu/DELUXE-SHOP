@@ -10,6 +10,7 @@ import { logout } from "../../actions/userActions";
 const Header = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
 
   const { user, loading } = useSelector((state) => state.auth);
 
@@ -38,7 +39,7 @@ const Header = () => {
               Cart
             </span>
             <span className='ml-1' id='cart_count'>
-              2
+              {cartItems.length}
             </span>
           </Link>
           {user ? (
@@ -52,11 +53,11 @@ const Header = () => {
                 aria-haspopup='true'
                 aria-expanded='false'
               >
-                <figure className='avatar avarta-nav'>
+                <figure className='avatar avarta-nav mr-2'>
                   <img
                     src={user.avatar && user.avatar.url}
                     alt={user && user.name}
-                    className='rounded-circle'
+                    className='rounded-circle '
                   />
                 </figure>
                 <span>{user && user.name}</span>
