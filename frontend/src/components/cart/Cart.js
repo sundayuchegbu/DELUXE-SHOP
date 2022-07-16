@@ -16,7 +16,7 @@ const Cart = () => {
     dispatch(removeItemFromCart(id));
   };
   const checkoutHandler = () => {
-    navigate("/login?redirect=shipping");
+    navigate(`/login?redirect=shipping`);
   };
   const increaseQty = (id, quantity, stock) => {
     const newQty = quantity + 1;

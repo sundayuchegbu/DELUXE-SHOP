@@ -17,7 +17,7 @@ const Range = createSliderWithTooltip(Slider.Range);
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [price, SetPrice] = useState([1000, 1000000]);
+  const [price, SetPrice] = useState([1000, 100000]);
   const [category, setCategory] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -84,11 +84,11 @@ const Home = () => {
                       <Range
                         marks={{
                           1000: ` ₦1000`,
-                          1000000: ` ₦1000000`,
+                          100000: ` ₦100000`,
                         }}
                         min={1000}
-                        max={1000000}
-                        defaultValue={[1000, 1000000]}
+                        max={100000}
+                        defaultValue={[1000, 100000]}
                         tipFormatter={(value) => `₦${value}`}
                         tipProps={{
                           placement: "top",
